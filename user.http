@@ -1,0 +1,37 @@
+### User API reqs
+
+### User creation/ Registration
+POST http://localhost:4000/user-api/user
+Content-Type: application/json
+
+{
+    "userType" : "user",
+    "username" : "ravi",
+    "password" : "ravi",
+    "email" : "ravi@gmail.com"
+}
+
+### User Login
+POST http://localhost:4000/user-api/login
+Content-Type: application/json
+
+{
+    "userType" : "user",
+    "username" : "ravi",
+    "password" : "ravi"
+}
+
+
+### Reading articles of all users
+GET http://localhost:4000/user-api/articles
+
+
+### Writing tyhe comments
+POST http://localhost:4000/user-api/comment
+Content-Type: application/json
+
+{
+    "articleId" : "1762164268",
+    "username" : "ravi",
+    "comment" : "Some comment made by user"
+}

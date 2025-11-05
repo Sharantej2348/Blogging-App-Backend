@@ -1,0 +1,78 @@
+### Author API reqs
+
+### Author creation/ Registration
+POST http://localhost:4000/author-api/author
+Content-Type: application/json
+
+{
+    "userType" : "author",
+    "username" : "vikram",
+    "password" : "vikram",
+    "email" : "vikram@gmail.com"
+}
+
+
+### Author Login
+POST http://localhost:4000/author-api/login
+Content-Type: application/json
+
+{
+    "userType" : "author",
+    "username" : "vikram",
+    "password" : "vikram"
+}
+
+
+### Add new articles by author
+POST http://localhost:4000/author-api/article
+Content-Type: application/json
+
+{
+    "articleId" : "{{$timestamp}}",
+    "title" : "Fundamentals of Javascript",
+    "category" : "programming",
+    "content" : "JavaScript (JS)[a] is a programming language and core technology of the Web, alongside HTML and CSS. It was created by Brendan Eich in 1995. Ninety-nine percent of websites use JavaScript on the client side for webpage behavior. Web browsers have a dedicated JavaScript engine that executes the client code. These engines are also utilized in some servers and a variety of apps. The most popular runtime system for non-browser usage is Node.js.",
+    "dateOfCreation" : "{{$datetime iso8601}}",    
+    "dateOfModification" : "{{$datetime iso8601}}",    
+    "username" : "vikram",
+    "comments" : [],
+    "status" : true
+}
+
+
+### Update articles by author
+PUT http://localhost:4000/author-api/article
+Content-Type: application/json
+
+{
+    "articleId" : "1762164315",
+    "title" : "Fundamentals of Javascript",
+    "category" : "programming",
+    "content" : "JavaScript (JS)[a] is a programming language and core technology of the Web, alongside HTML and CSS.",
+    "dateOfCreation" : "2025-11-03T10:05:15.304Z",    
+    "dateOfModification" : "{{$datetime iso8601}}",    
+    "username" : "vikram",
+    "comments" : [],
+    "status" : true
+}
+
+
+### Soft Delete articles by author
+PUT http://localhost:4000/author-api/article/1762164315
+Content-Type: application/json
+
+{
+    "articleId" : "1762164315",
+    "title" : "Fundamentals of Javascript",
+    "category" : "programming",
+    "content" : "JavaScript (JS)[a] is a programming language and core technology of the Web, alongside HTML and CSS.",
+    "dateOfCreation" : "2025-11-03T10:05:15.304Z",    
+    "dateOfModification" : "{{$datetime iso8601}}",    
+    "username" : "vikram",
+    "comments" : [],
+    "status" : false
+}
+
+
+### View/read articles of that particular author
+GET http://localhost:4000/author-api/articles/vikram
